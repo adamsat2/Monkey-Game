@@ -1,0 +1,54 @@
+package com.example.monkeygame
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.monkeygame.utilities.Constants
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textview.MaterialTextView
+
+class OverActivity : AppCompatActivity() {
+
+
+    private lateinit var over_LBL_title: MaterialTextView
+
+    private lateinit var over_BTN_newGame: MaterialButton
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_over)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        findViews()
+        initViews()
+    }
+
+    private fun findViews() {
+        over_LBL_title = findViewById(R.id.over_LBL_title)
+        over_BTN_newGame = findViewById(R.id.over_BTN_newGame)
+    }
+
+    private fun initViews() {
+        val bundle: Bundle? = intent.extras
+
+        val message = bundle?.getString(Constants.BundleKeys.MESSAGE_KEY,"🤷🏻‍♂️ Unknown Status!")
+
+        over_LBL_title.text = buildString {
+            append(message)
+        }
+        over_BTN_newGame.setOnClickListener { view: View ->
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+}

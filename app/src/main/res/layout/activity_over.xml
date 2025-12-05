@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_nature"
+    tools:context=".OverActivity">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/over_LBL_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Game Over\nYou Lost!"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/over_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/over_BTN_newGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:backgroundTint="@color/orange_nature"
+        android:text="New Game"
+        android:textColor="@color/black"
+        />
+</RelativeLayout>

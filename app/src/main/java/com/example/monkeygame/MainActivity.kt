@@ -1,5 +1,6 @@
 package com.example.monkeygame
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -131,10 +132,19 @@ class MainActivity : AppCompatActivity() {
                 // Lost:
                 if (gameManager.isGameOver) {
                     Log.d("Game Status", "Game Over!")
-                    //changeActivity("😭Game Over!", gameManager.score)
+                    changeActivity("Game Over\nYou Lost 😭")
                     stopTimer()
                 }
             }
         }
+    }
+
+    private fun changeActivity(message: String) {
+        val intent = Intent(this, OverActivity::class.java)
+        var bundle = Bundle()
+        bundle.putString(Constants.BundleKeys.MESSAGE_KEY, message)
+        intent.putExtras(bundle)
+        startActivity(intent)
+        finish()
     }
 }
