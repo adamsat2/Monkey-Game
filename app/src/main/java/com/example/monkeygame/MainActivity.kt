@@ -95,43 +95,44 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun movePlayer(move: Int) {
-        gameManager.movePlayer(move)
-        refreshUI()
+        if (!gameManager.isGameOver) {
+            gameManager.movePlayer(move)
+            refreshUI()
+        }
     }
 
     private fun refreshUI() {
         // check collision before anything else to be instantly notified when out of lives
         gameManager.checkCollision()
-        // Lost:
-        if (gameManager.isGameOver) {
-            Log.d("Game Status", "Game Over!")
-            //changeActivity("😭Game Over!", gameManager.score)
-            stopTimer()
-        } else { // Ongoing:
-            // hearts:
-            if (gameManager.hitsTaken != 0){
-                main_IMG_hearts[main_IMG_hearts.size - gameManager.hitsTaken]
-                    .visibility = View.INVISIBLE
-            }
-            val rows = gameManager.rows
-            val cols = gameManager.cols
+        val rows = gameManager.rows
+        val cols = gameManager.cols
 
-            for (i in 0 until rows) {
-                for (j in 0 until cols) {
-                    val img: AppCompatImageView = main_IMG_grid[i][j]
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                val img: AppCompatImageView = main_IMG_grid[i][j]
 
-                    img.visibility = View.INVISIBLE
+                img.visibility = View.INVISIBLE
 
-                    // monkey:
-                    if (i == gameManager.monkeyRow && j == gameManager.monkeyCol) {
-                        img.setImageResource(R.drawable.monkey)
-                        img.visibility = View.VISIBLE
-                    }
-                    // barrels
-                    else if (gameManager.getItem(i, j) == 1) {
-                        img.setImageResource(R.drawable.barrel)
-                        img.visibility = View.VISIBLE
-                    }
+                // monkey:
+                if (i == gameManager.monkeyRow && j == gameManager.monkeyCol) {
+                    img.setImageResource(R.drawable.monkey)
+                    img.visibility = View.VISIBLE
+                }
+                // barrels
+                else if (gameManager.getItem(i, j) == 1) {
+                    img.setImageResource(R.drawable.barrel)
+                    img.visibility = View.VISIBLE
+                }
+                // hearts:
+                if (gameManager.hitsTaken != 0){
+                    main_IMG_hearts[main_IMG_hearts.size - gameManager.hitsTaken]
+                        .visibility = View.INVISIBLE
+                }
+                // Lost:
+                if (gameManager.isGameOver) {
+                    Log.d("Game Status", "Game Over!")
+                    //changeActivity("😭Game Over!", gameManager.score)
+                    stopTimer()
                 }
             }
         }

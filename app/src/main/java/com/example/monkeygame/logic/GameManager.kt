@@ -26,7 +26,6 @@ class GameManager(private val lifeCount: Int = 3) {
     var monkeyCol: Int = cols / 2
 
     fun movePlayer(move: Int){
-        // correct answer and update score
         val newPos: Int = monkeyCol + move
         if (newPos >= 0 && newPos <= cols-1)
             monkeyCol = newPos
@@ -56,9 +55,14 @@ class GameManager(private val lifeCount: Int = 3) {
             gameMatrix[0][j] = 0
         }
 
+        // 50% chance a barrel would spawn every tick
+        val shouldSpawn = (0..1).random() != 0
+
         // random new barrel
-        val randomCol = (0..<cols).random()
-        gameMatrix[0][randomCol] = 1
+        if (shouldSpawn) {
+            val randomCol = (0..<cols).random()
+            gameMatrix[0][randomCol] = 1
+        }
 
         checkCollision()
     }
