@@ -124,18 +124,19 @@ class MainActivity : AppCompatActivity() {
                     img.setImageResource(R.drawable.barrel)
                     img.visibility = View.VISIBLE
                 }
-                // hearts:
-                if (gameManager.hitsTaken != 0){
-                    main_IMG_hearts[main_IMG_hearts.size - gameManager.hitsTaken]
-                        .visibility = View.INVISIBLE
-                }
-                // Lost:
-                if (gameManager.isGameOver) {
-                    Log.d("Game Status", "Game Over!")
-                    changeActivity("Game Over\nYou Lost 😭")
-                    stopTimer()
-                }
             }
+        }
+
+        // hearts:
+        if (gameManager.hitsTaken != 0){
+            main_IMG_hearts[main_IMG_hearts.size - gameManager.hitsTaken]
+                .visibility = View.INVISIBLE
+        }
+        // Lost:
+        if (gameManager.isGameOver) {
+            Log.d("Game Status", "Game Over!")
+            changeActivity("Game Over\nYou Lost 😭")
+            stopTimer()
         }
     }
 
