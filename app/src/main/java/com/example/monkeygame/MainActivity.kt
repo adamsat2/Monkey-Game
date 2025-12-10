@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.monkeygame.logic.GameManager
 import com.example.monkeygame.utilities.Constants
+import com.example.monkeygame.utilities.SignalManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SignalManager.init(this)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -104,7 +106,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshUI() {
         // check collision before anything else to be instantly notified when out of lives
-        gameManager.checkCollision()
+        if (gameManager.checkCollision()) {
+            SignalManager.getInstance().toast("Ouch! Kofifi was hit by a barrel!", SignalManager.ToastLength.SHORT)
+            SignalManager.getInstance().vibrate()
+        }
+
         val rows = gameManager.rows
         val cols = gameManager.cols
 
@@ -132,7 +138,7 @@ class MainActivity : AppCompatActivity() {
             main_IMG_hearts[main_IMG_hearts.size - gameManager.hitsTaken]
                 .visibility = View.INVISIBLE
         }
-        // Lost:
+        // lost:
         if (gameManager.isGameOver) {
             Log.d("Game Status", "Game Over!")
             changeActivity("Game Over\nYou Lost 😭")

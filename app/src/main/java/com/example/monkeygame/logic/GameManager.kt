@@ -31,12 +31,14 @@ class GameManager(private val lifeCount: Int = 3) {
             monkeyCol = newPos
     }
 
-    fun checkCollision() {
+    fun checkCollision(): Boolean {
         // a barrel hit the monkey, update hitsTaken
         if (gameMatrix[monkeyRow][monkeyCol] == 1) {
             hitsTaken++
             gameMatrix[monkeyRow][monkeyCol] = 0
+            return true
         }
+        return false
     }
 
     fun moveObstacles() {
@@ -64,7 +66,6 @@ class GameManager(private val lifeCount: Int = 3) {
             gameMatrix[0][randomCol] = 1
         }
 
-        checkCollision()
     }
 
 }
