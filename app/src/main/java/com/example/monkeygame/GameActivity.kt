@@ -163,7 +163,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun changeActivity(message: String) {
         val intent = Intent(this, OverActivity::class.java)
-        var bundle = Bundle()
+        val bundle = Bundle()
         bundle.putString(Constants.BundleKeys.MESSAGE_KEY, message)
         intent.putExtras(bundle)
         startActivity(intent)

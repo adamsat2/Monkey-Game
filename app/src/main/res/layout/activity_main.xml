@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/main_IMG_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/background_game_img"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="40dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/title_buttons_margin"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_button_height"
+            android:layout_marginVertical="@dimen/main_button_ver_mar"
+            android:backgroundTint="@color/orange_nature"
+            android:text="BUTTON JUNGLE"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_button_text_size"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/main_button_rad"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_tilt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_button_height"
+            android:layout_marginVertical="@dimen/main_button_ver_mar"
+            android:backgroundTint="@color/orange_nature"
+            android:text="TILTLAND"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_button_text_size"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/main_button_rad"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_leaderboards"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_button_height"
+            android:layout_marginVertical="@dimen/main_button_ver_mar"
+            android:backgroundTint="@color/orange_nature"
+            android:text="LEADERBOARDS"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_button_text_size"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/main_button_rad"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/main_SW_fast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_button_ver_mar"
+            android:checked="false"
+            android:text="Fast Game "
+            android:textColor="@color/black"
+            android:textSize="@dimen/main_button_text_size"
+            android:textStyle="bold"
+            app:thumbTint="@color/orange_nature"
+            app:trackTint="@color/white"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
