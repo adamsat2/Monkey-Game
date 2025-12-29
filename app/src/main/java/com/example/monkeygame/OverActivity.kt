@@ -46,7 +46,7 @@ class OverActivity : AppCompatActivity() {
             append(message)
         }
         over_BTN_newGame.setOnClickListener { view: View ->
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, GameActivity::class.java)
             startActivity(intent)
             finish()
         }

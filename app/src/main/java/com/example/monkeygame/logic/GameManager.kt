@@ -5,11 +5,13 @@ class GameManager(private val lifeCount: Int = 3) {
         private set
 
     val rows: Int = 5
-    val cols: Int = 3
+    val cols: Int = 5
 
-    // 0 = Empty
-    // 1 = Barrel
+    // 0 = Empty, 1 = Barrel, 2 = Banana
     private val gameMatrix = Array(rows) { IntArray(cols) }
+
+    // for obstacle spawn
+    private var isEvenTick = false
 
     fun getItem(row: Int, col: Int): Int {
         return gameMatrix[row][col]
@@ -31,17 +33,31 @@ class GameManager(private val lifeCount: Int = 3) {
             monkeyCol = newPos
     }
 
-    fun checkCollision(): Boolean {
-        // a barrel hit the monkey, update hitsTaken
-        if (gameMatrix[monkeyRow][monkeyCol] == 1) {
+    fun checkCollision(): Int {
+        val monkeyPos = gameMatrix[monkeyRow][monkeyCol]
+
+        // monkey collided with a barrel
+        if (monkeyPos == 1) {
             hitsTaken++
             gameMatrix[monkeyRow][monkeyCol] = 0
-            return true
+            return 1
         }
-        return false
+        // monkey collided with a banana
+        else if (monkeyPos == 2) {
+            if (hitsTaken > 0) {
+                hitsTaken--
+            }
+            gameMatrix[monkeyRow][monkeyCol] = 0
+            return 2
+        }
+
+        return 0
     }
 
+
     fun moveObstacles() {
+        isEvenTick = !isEvenTick
+
         // move all the rows by 1
         // start from bottom to avoid overwrite
         var i = rows - 1
@@ -57,13 +73,17 @@ class GameManager(private val lifeCount: Int = 3) {
             gameMatrix[0][j] = 0
         }
 
-        // 50% chance a barrel would spawn every tick
-        val shouldSpawn = (0..1).random() != 0
-
-        // random new barrel
-        if (shouldSpawn) {
+        // random new barrel/banana
+        if (isEvenTick) {
             val randomCol = (0..<cols).random()
-            gameMatrix[0][randomCol] = 1
+            // 0.2 chance for banana (0 or 1), 0.8 chance for barrel
+            val isBanana = (0..9).random() < 2
+
+            if (isBanana) {
+                gameMatrix[0][randomCol] = 2
+            } else {
+                gameMatrix[0][randomCol] = 1
+            }
         }
 
     }

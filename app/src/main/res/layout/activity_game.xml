@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".GameActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/main_IMG_background"
@@ -82,6 +82,18 @@
                 android:layout_height="@dimen/barrel_size"
                 android:layout_marginHorizontal="@dimen/mat_hor_margin"
                 tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid03"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid04"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -103,6 +115,18 @@
                 tools:srcCompat="@drawable/barrel"/>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/main_IMG_grid12"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid13"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid14"
                 android:layout_width="@dimen/barrel_size"
                 android:layout_height="@dimen/barrel_size"
                 android:layout_marginHorizontal="@dimen/mat_hor_margin"
@@ -132,6 +156,18 @@
                 android:layout_height="@dimen/barrel_size"
                 android:layout_marginHorizontal="@dimen/mat_hor_margin"
                 tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid23"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid24"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -157,6 +193,18 @@
                 android:layout_height="@dimen/barrel_size"
                 android:layout_marginHorizontal="@dimen/mat_hor_margin"
                 tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid33"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid34"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -175,9 +223,21 @@
                 android:layout_width="@dimen/barrel_size"
                 android:layout_height="@dimen/barrel_size"
                 android:layout_marginHorizontal="@dimen/mat_hor_margin"
-                tools:srcCompat="@drawable/monkey"/>
+                tools:srcCompat="@drawable/barrel"/>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/main_IMG_grid42"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/monkey"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid43"
+                android:layout_width="@dimen/barrel_size"
+                android:layout_height="@dimen/barrel_size"
+                android:layout_marginHorizontal="@dimen/mat_hor_margin"
+                tools:srcCompat="@drawable/barrel"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_IMG_grid44"
                 android:layout_width="@dimen/barrel_size"
                 android:layout_height="@dimen/barrel_size"
                 android:layout_marginHorizontal="@dimen/mat_hor_margin"
