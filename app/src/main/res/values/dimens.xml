@@ -7,6 +7,7 @@
     <dimen name="heart_size">40dp</dimen>
     <dimen name="barrel_size">55dp</dimen>
     <dimen name="over_text_size">60sp</dimen>
+    <dimen name="over_score_text_size">40sp</dimen>
     <dimen name="direction_buttons_margin">115dp</dimen>
     <dimen name="mat_hor_margin">10dp</dimen>
     <dimen name="mat_ver_margin">30dp</dimen>

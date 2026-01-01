@@ -7,6 +7,9 @@ class GameManager(private val lifeCount: Int = 3) {
     var score: Int = 0
         private set
 
+    var bananasEaten: Int = 0
+        private set
+
     val rows: Int = 5
     val cols: Int = 5
 
@@ -47,6 +50,7 @@ class GameManager(private val lifeCount: Int = 3) {
         }
         // monkey collided with a banana
         else if (monkeyPos == 2) {
+            bananasEaten++
             if (hitsTaken > 0) {
                 hitsTaken--
             }
@@ -81,8 +85,8 @@ class GameManager(private val lifeCount: Int = 3) {
         // random new barrel/banana
         if (isEvenTick) {
             val randomCol = (0..<cols).random()
-            // 0.2 chance for banana (0 or 1), 0.8 chance for barrel
-            val isBanana = (0..9).random() < 2
+            // 0.1 chance for banana, 0.9 chance for barrel
+            val isBanana = (0..9).random() < 1
 
             if (isBanana) {
                 gameMatrix[0][randomCol] = 2

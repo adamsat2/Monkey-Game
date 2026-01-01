@@ -21,6 +21,19 @@
         android:gravity="center"
         />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/over_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/over_LBL_title"
+        android:layout_centerHorizontal="true"
+        tools:text="Score: 123"
+        android:textSize="@dimen/over_score_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/over_BTN_newGame"
         android:layout_width="wrap_content"

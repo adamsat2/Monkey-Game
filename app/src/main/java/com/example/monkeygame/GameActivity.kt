@@ -208,16 +208,19 @@ class GameActivity : AppCompatActivity() {
 
         // lost:
         if (gameManager.isGameOver) {
+            // calculate the total score including 10 points per banana eaten
+            val totalScore = gameManager.score + (gameManager.bananasEaten * 10)
             Log.d("Game Status", "Game Over!")
-            changeActivity("Game Over\nYou Lost 😭")
+            changeActivity("Game Over\nYou Lost 😭", totalScore)
             stopTimer()
         }
     }
 
-    private fun changeActivity(message: String) {
+    private fun changeActivity(message: String, score: Int) {
         val intent = Intent(this, OverActivity::class.java)
         val bundle = Bundle()
         bundle.putString(Constants.BundleKeys.MESSAGE_KEY, message)
+        bundle.putInt(Constants.BundleKeys.SCORE_KEY, score)
         intent.putExtras(bundle)
         startActivity(intent)
         finish()
