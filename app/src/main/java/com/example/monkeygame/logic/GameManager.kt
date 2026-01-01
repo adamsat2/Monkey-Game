@@ -4,6 +4,9 @@ class GameManager(private val lifeCount: Int = 3) {
     var hitsTaken: Int = 0
         private set
 
+    var score: Int = 0
+        private set
+
     val rows: Int = 5
     val cols: Int = 5
 
@@ -56,6 +59,8 @@ class GameManager(private val lifeCount: Int = 3) {
 
 
     fun moveObstacles() {
+        score++
+
         isEvenTick = !isEvenTick
 
         // move all the rows by 1
@@ -85,7 +90,6 @@ class GameManager(private val lifeCount: Int = 3) {
                 gameMatrix[0][randomCol] = 1
             }
         }
-
     }
 
 }

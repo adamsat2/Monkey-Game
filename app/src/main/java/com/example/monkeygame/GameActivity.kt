@@ -14,30 +14,34 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.monkeygame.logic.GameManager
 import com.example.monkeygame.utilities.Constants
 import com.example.monkeygame.utilities.SignalManager
+import com.example.monkeygame.utilities.TiltDetector
+import com.example.monkeygame.interfaces.TiltCallback
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.textview.MaterialTextView
 
 class GameActivity : AppCompatActivity() {
 
+    private lateinit var main_LBL_score: MaterialTextView
     private lateinit var main_BTN_left: FloatingActionButton
-
     private lateinit var main_BTN_right: FloatingActionButton
-
     private lateinit var main_IMG_hearts: Array<AppCompatImageView>
-
     private lateinit var main_IMG_background: AppCompatImageView
-
     private lateinit var main_IMG_grid: Array<Array<AppCompatImageView>>
 
     private lateinit var gameManager: GameManager
 
+    private lateinit var tiltDetector: TiltDetector
+    private var isTiltMode: Boolean = false
+
     private val handler: Handler = Handler(Looper.getMainLooper())
     private var startTime: Long = 0
     private var timerOn: Boolean = false
+    private var delay = if (intent.getBooleanExtra(Constants.BundleKeys.FAST_GAME_KEY, false)) Constants.Timer.DELAY else Constants.Timer.DELAY / 2
 
     val runnable: Runnable = object : Runnable {
         override fun run() {
             // Reschedule:
-            handler.postDelayed(this, Constants.Timer.DELAY)
+            handler.postDelayed(this, delay)
             gameManager.moveObstacles()
             refreshUI()
         }
@@ -53,9 +57,46 @@ class GameActivity : AppCompatActivity() {
             insets
         }
 
+        isTiltMode = intent.getBooleanExtra(Constants.BundleKeys.TILT_KEY, false)
+
         findViews()
         gameManager = GameManager(main_IMG_hearts.size)
         initViews()
+
+        if (isTiltMode) {
+            initTiltDetector()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startTimer()
+        if (isTiltMode) {
+            tiltDetector.start()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopTimer()
+        if (isTiltMode) {
+            tiltDetector.stop()
+        }
+    }
+
+    private fun initTiltDetector() {
+        tiltDetector = TiltDetector(
+            this,
+            object : TiltCallback {
+                override fun tiltLeft() {
+                    movePlayer(-1)
+                }
+
+                override fun tiltRight() {
+                    movePlayer(1)
+                }
+            }
+        )
     }
 
     private fun stopTimer() {
@@ -66,7 +107,7 @@ class GameActivity : AppCompatActivity() {
     private fun startTimer() {
         if (!timerOn) {
             startTime = System.currentTimeMillis()
-            handler.postDelayed(runnable, Constants.Timer.DELAY)
+            handler.postDelayed(runnable, delay)
             timerOn = true
         }
     }
@@ -90,10 +131,15 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        // Hide buttons if Tilt Mode
+        if (isTiltMode) {
+            main_BTN_left.visibility = View.INVISIBLE
+            main_BTN_right.visibility = View.INVISIBLE
+        }
+
         main_BTN_left.setOnClickListener { view: View -> movePlayer(-1) }
         main_BTN_right.setOnClickListener { view: View -> movePlayer(1) }
         refreshUI()
-        startTimer()
     }
 
     private fun movePlayer(move: Int) {
@@ -115,6 +161,8 @@ class GameActivity : AppCompatActivity() {
         else if (collisionType == 2) {
             SignalManager.getInstance().toast("Ohhhh banana", SignalManager.ToastLength.SHORT)
         }
+
+        main_LBL_score.text = "Score: ${gameManager.score}"
 
         val rows = gameManager.rows
         val cols = gameManager.cols
