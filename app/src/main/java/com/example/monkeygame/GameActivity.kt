@@ -36,7 +36,7 @@ class GameActivity : AppCompatActivity() {
     private val handler: Handler = Handler(Looper.getMainLooper())
     private var startTime: Long = 0
     private var timerOn: Boolean = false
-    private var delay = if (intent.getBooleanExtra(Constants.BundleKeys.FAST_GAME_KEY, false)) Constants.Timer.DELAY else Constants.Timer.DELAY / 2
+    private var delay = Constants.Timer.DELAY
 
     val runnable: Runnable = object : Runnable {
         override fun run() {
@@ -58,6 +58,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         isTiltMode = intent.getBooleanExtra(Constants.BundleKeys.TILT_KEY, false)
+        val isFast = intent.getBooleanExtra(Constants.BundleKeys.FAST_GAME_KEY, false)
 
         findViews()
         gameManager = GameManager(main_IMG_hearts.size)
@@ -65,6 +66,9 @@ class GameActivity : AppCompatActivity() {
 
         if (isTiltMode) {
             initTiltDetector()
+        }
+        if (isFast) {
+            delay /= 2
         }
     }
 
@@ -114,6 +118,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun findViews() {
         main_IMG_background = findViewById(R.id.main_IMG_background)
+        main_LBL_score = findViewById(R.id.main_LBL_score)
         main_BTN_left = findViewById(R.id.main_BTN_left)
         main_BTN_right = findViewById(R.id.main_BTN_right)
         main_IMG_hearts = arrayOf(
