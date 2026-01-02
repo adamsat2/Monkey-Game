@@ -16,6 +16,7 @@ import com.example.monkeygame.utilities.Constants
 import com.example.monkeygame.utilities.SignalManager
 import com.example.monkeygame.utilities.TiltDetector
 import com.example.monkeygame.interfaces.TiltCallback
+import com.example.monkeygame.utilities.SingleSoundPlayer
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textview.MaterialTextView
 
@@ -37,6 +38,7 @@ class GameActivity : AppCompatActivity() {
     private var startTime: Long = 0
     private var timerOn: Boolean = false
     private var delay = Constants.Timer.DELAY
+    private val ssp = SingleSoundPlayer(this) // used to manage sounds
 
     val runnable: Runnable = object : Runnable {
         override fun run() {
@@ -158,13 +160,14 @@ class GameActivity : AppCompatActivity() {
         // check collision before anything else to be instantly notified when out of lives
         val collisionType = gameManager.checkCollision()
 
-        // TODO: Play sound upon the different collisions
         if (collisionType == 1) {
             SignalManager.getInstance().toast("Ouch! Kofifi was hit by a barrel!", SignalManager.ToastLength.SHORT)
             SignalManager.getInstance().vibrate()
+            ssp.playSound(R.raw.monkey_grunt)
         }
         else if (collisionType == 2) {
             SignalManager.getInstance().toast("Ohhhh banana", SignalManager.ToastLength.SHORT)
+            ssp.playSound(R.raw.oh_banana)
         }
 
         main_LBL_score.text = "Score: ${gameManager.score}"
