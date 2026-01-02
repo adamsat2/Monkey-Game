@@ -38,7 +38,7 @@ class GameActivity : AppCompatActivity() {
     private var startTime: Long = 0
     private var timerOn: Boolean = false
     private var delay = Constants.Timer.DELAY
-    private val ssp = SingleSoundPlayer(this) // used to manage sounds
+    private lateinit var ssp: SingleSoundPlayer // used to manage sounds
 
     val runnable: Runnable = object : Runnable {
         override fun run() {
@@ -58,6 +58,8 @@ class GameActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        ssp = SingleSoundPlayer(this)
 
         isTiltMode = intent.getBooleanExtra(Constants.BundleKeys.TILT_KEY, false)
         val isFast = intent.getBooleanExtra(Constants.BundleKeys.FAST_GAME_KEY, false)
