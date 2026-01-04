@@ -10,7 +10,7 @@ class GameManager(private val lifeCount: Int = 3) {
     var bananasEaten: Int = 0
         private set
 
-    val rows: Int = 5
+    val rows: Int = 6
     val cols: Int = 5
 
     // 0 = Empty, 1 = Barrel, 2 = Banana

@@ -9,8 +9,8 @@
     <dimen name="over_text_size">60sp</dimen>
     <dimen name="over_score_text_size">40sp</dimen>
     <dimen name="direction_buttons_margin">115dp</dimen>
-    <dimen name="mat_hor_margin">10dp</dimen>
-    <dimen name="mat_ver_margin">30dp</dimen>
+    <dimen name="mat_hor_margin">7dp</dimen>
+    <dimen name="mat_ver_margin">25dp</dimen>
     <dimen name="title_buttons_margin">80dp</dimen>
     <dimen name="main_button_height">60dp</dimen>
     <dimen name="main_button_ver_mar">10dp</dimen>

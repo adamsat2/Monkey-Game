@@ -135,7 +135,8 @@ class GameActivity : AppCompatActivity() {
             arrayOf(findViewById(R.id.main_IMG_grid10), findViewById(R.id.main_IMG_grid11), findViewById(R.id.main_IMG_grid12), findViewById(R.id.main_IMG_grid13), findViewById(R.id.main_IMG_grid14)),
             arrayOf(findViewById(R.id.main_IMG_grid20), findViewById(R.id.main_IMG_grid21), findViewById(R.id.main_IMG_grid22), findViewById(R.id.main_IMG_grid23), findViewById(R.id.main_IMG_grid24)),
             arrayOf(findViewById(R.id.main_IMG_grid30), findViewById(R.id.main_IMG_grid31), findViewById(R.id.main_IMG_grid32), findViewById(R.id.main_IMG_grid33), findViewById(R.id.main_IMG_grid34)),
-            arrayOf(findViewById(R.id.main_IMG_grid40), findViewById(R.id.main_IMG_grid41), findViewById(R.id.main_IMG_grid42), findViewById(R.id.main_IMG_grid43), findViewById(R.id.main_IMG_grid44))
+            arrayOf(findViewById(R.id.main_IMG_grid40), findViewById(R.id.main_IMG_grid41), findViewById(R.id.main_IMG_grid42), findViewById(R.id.main_IMG_grid43), findViewById(R.id.main_IMG_grid44)),
+            arrayOf(findViewById(R.id.main_IMG_grid50), findViewById(R.id.main_IMG_grid51), findViewById(R.id.main_IMG_grid52), findViewById(R.id.main_IMG_grid53), findViewById(R.id.main_IMG_grid54))
         )
     }
 
