@@ -35,14 +35,14 @@
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/over_BTN_newGame"
+        android:id="@+id/over_BTN_continue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/default_margin"
         android:backgroundTint="@color/orange_nature"
-        android:text="New Game"
+        android:text="Continue"
         android:textColor="@color/black"
         />
 </RelativeLayout>

@@ -5,7 +5,7 @@
     <dimen name="title_size">32sp</dimen>
     <dimen name="default_margin">8dp</dimen>
     <dimen name="heart_size">40dp</dimen>
-    <dimen name="barrel_size">55dp</dimen>
+    <dimen name="barrel_size">45dp</dimen>
     <dimen name="over_text_size">60sp</dimen>
     <dimen name="over_score_text_size">40sp</dimen>
     <dimen name="direction_buttons_margin">115dp</dimen>
@@ -16,4 +16,7 @@
     <dimen name="main_button_ver_mar">10dp</dimen>
     <dimen name="main_button_text_size">18sp</dimen>
     <dimen name="main_button_rad">20dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="score_mar_ver">24dp</dimen>
+    <dimen name="score_save_btn_size">16sp</dimen>
 </resources>

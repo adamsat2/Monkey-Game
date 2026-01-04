@@ -15,7 +15,7 @@ class OverActivity : AppCompatActivity() {
 
 
     private lateinit var over_LBL_title: MaterialTextView
-    private lateinit var over_BTN_newGame: MaterialButton
+    private lateinit var over_BTN_continue: MaterialButton
     private lateinit var over_LBL_score: MaterialTextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class OverActivity : AppCompatActivity() {
     private fun findViews() {
         over_LBL_title = findViewById(R.id.over_LBL_title)
         over_LBL_score = findViewById(R.id.over_LBL_score)
-        over_BTN_newGame = findViewById(R.id.over_BTN_newGame)
+        over_BTN_continue = findViewById(R.id.over_BTN_continue)
     }
 
     private fun initViews() {
@@ -45,8 +45,9 @@ class OverActivity : AppCompatActivity() {
 
         over_LBL_title.text = message
         over_LBL_score.text = "Score: $score"
-        over_BTN_newGame.setOnClickListener { view: View ->
-            val intent = Intent(this, MainActivity::class.java)
+        over_BTN_continue.setOnClickListener { view: View ->
+            val intent = Intent(this, ScoreActivity::class.java)
+            intent.putExtra(Constants.BundleKeys.SCORE_KEY, score)
             startActivity(intent)
             finish()
         }
