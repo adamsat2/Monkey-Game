@@ -51,7 +51,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         main_BTN_leaderboards.setOnClickListener {
-            // TODO: Open Leaderboards Activity
+            val intent = Intent(this, LeaderboardActivity::class.java)
+            startActivity(intent)
         }
     }
 
