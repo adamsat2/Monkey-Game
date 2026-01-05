@@ -34,7 +34,7 @@ class HighScoreFragment : Fragment() {
     private fun loadScores() {
         val gson = Gson()
         val sp = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val json = sp.getString(Constants.BundleKeys.SAVE_SCORE_KEY, null)
+        val json = sp.getString(Constants.BundleKeys.SCORE_LIST_KEY, null)
         val type = object : TypeToken<List<ScoreEntry>>() {}.type
 
         val scores: List<ScoreEntry> = if (json != null) gson.fromJson(json, type) else emptyList()

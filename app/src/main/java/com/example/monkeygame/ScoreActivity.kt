@@ -118,7 +118,7 @@ class ScoreActivity : AppCompatActivity() {
 
         val gson = Gson()
         val sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val json = sp.getString(Constants.BundleKeys.SAVE_SCORE_KEY, null)
+        val json = sp.getString(Constants.BundleKeys.SCORE_LIST_KEY, null)
         val type = object : TypeToken<MutableList<ScoreEntry>>() {}.type
 
         val scoresList: MutableList<ScoreEntry> = if (json != null) {
@@ -130,7 +130,12 @@ class ScoreActivity : AppCompatActivity() {
         scoresList.add(newEntry)
         scoresList.sortByDescending { it.score }
 
-        sp.edit().putString(Constants.BundleKeys.SAVE_SCORE_KEY, gson.toJson(scoresList)).apply()
+        // keep only top 10 records
+        if (scoresList.size > 10) {
+            scoresList.removeAt(scoresList.size - 1)
+        }
+
+        sp.edit().putString(Constants.BundleKeys.SCORE_LIST_KEY, gson.toJson(scoresList)).apply()
 
         // proceed only after saving
         val intent = Intent(this, LeaderboardActivity::class.java)

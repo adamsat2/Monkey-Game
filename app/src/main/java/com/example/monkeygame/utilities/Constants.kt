@@ -10,6 +10,6 @@ class Constants {
         const val TILT_KEY: String = "TILT_KEY"
         const val FAST_GAME_KEY: String = "FAST_GAME_KEY"
         const val SCORE_KEY: String = "SCORE_KEY"
-        const val SAVE_SCORE_KEY: String = "SAVE_SCORE_KEY"
+        const val SCORE_LIST_KEY: String = "SCORE_LIST_KEY"
     }
 }
