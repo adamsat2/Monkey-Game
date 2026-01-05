@@ -1,6 +1,8 @@
 package com.example.monkeygame
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,6 +14,7 @@ import com.example.monkeygame.ui.MapFragment
 class LeaderboardActivity : AppCompatActivity() {
     private lateinit var mapFragment: MapFragment
     private lateinit var highScoreFragment: HighScoreFragment
+    private lateinit var leaderboard_BTN_back: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +25,23 @@ class LeaderboardActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        findViews()
+        initViews()
+    }
+
+    private fun findViews() {
+        leaderboard_BTN_back = findViewById(R.id.leaderboard_BTN_back)
+    }
+
+    private fun initViews() {
+        leaderboard_BTN_back.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
+
         mapFragment = MapFragment()
         highScoreFragment = HighScoreFragment()
 

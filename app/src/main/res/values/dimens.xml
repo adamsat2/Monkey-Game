@@ -19,4 +19,5 @@
     <dimen name="default_padding">16dp</dimen>
     <dimen name="score_mar_ver">24dp</dimen>
     <dimen name="score_save_btn_size">16sp</dimen>
+    <dimen name="ldr_btn_arr">48dp</dimen>
 </resources>

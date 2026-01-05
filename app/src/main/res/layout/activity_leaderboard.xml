@@ -9,6 +9,22 @@
     android:orientation="vertical"
     tools:context=".LeaderboardActivity">
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/leaderboard_BTN_back"
+            android:layout_width="@dimen/ldr_btn_arr"
+            android:layout_height="@dimen/ldr_btn_arr"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:src="@drawable/left_arrow"
+            app:tint="@color/black" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
     <FrameLayout
         android:id="@+id/main_FRAME_list"
         android:layout_width="match_parent"

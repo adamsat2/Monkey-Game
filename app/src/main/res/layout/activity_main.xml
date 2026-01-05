@@ -81,7 +81,7 @@
             android:textSize="@dimen/main_button_text_size"
             android:textStyle="bold"
             app:thumbTint="@color/orange_nature"
-            app:trackTint="@color/white"/>
+            app:trackTint="@color/switch_track_color"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
