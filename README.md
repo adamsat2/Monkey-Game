@@ -14,20 +14,30 @@ Kofifi's Adventures is an Android application where the player controls a monkey
 
 ### 1. Main Menu
 The entry point where you configure your game settings.
-![Main Menu](screenshots/1_main_menu.png)
+<div align="center">
+  <img src="screenshots/1_main_menu.png" width="300" alt="Main Menu">
+</div>
 
 ### 2. Gameplay
 The active game screen showing lives (hearts), score, the game grid and the movement buttons (unless playing on Tiltland).
-![Gameplay](screenshots/2_game_menu.png)
+<div align="center">
+  <img src="screenshots/2_game_menu.png" width="300" alt="Game Menu">
+</div>
 
 ### 3. Score
 Triggered after losing the game, this view shows your total score (distance moved + bananas eaten).
-![Score Entry](screenshots/3_over_menu.png)
+<div align="center">
+  <img src="screenshots/3_over_menu.png" width="300" alt="Over Menu">
+</div>
 
 ### 4. Name Entry
 Triggered after the Game Over view, this view captures your name and fetches your current location.
-![Score Entry](screenshots/4_name_menu.png)
+<div align="center">
+  <img src="screenshots/4_name_menu.png" width="300" alt="Name Menu">
+</div>
 
 ### 5. Leaderboard & Map
 A split-screen view showing the top scores and a Google Map with the option to return to the main menu via the arrow button.
-![Leaderboard](screenshots/5_leaderboard_menu.png)
+<div align="center">
+  <img src="screenshots/5_leaderboard_menu.png" width="300" alt="Leaderboards Menu">
+</div>
