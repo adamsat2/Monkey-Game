@@ -10,6 +10,15 @@ Kofifi's Adventures is an Android application where the player controls a monkey
 * **Location-Aware Leaderboards**: High scores are saved with the player's name and GPS coordinates.
 * **Interactive Map**: Clicking a high score on the leaderboard zooms into the specific location where that score was achieved.
 
+## Getting Started
+
+To run this project locally, you will need to set up a Google Maps API key.
+
+1. **Create local.properties**: In your project root folder, find or create a file named `local.properties`.
+2. **Add the Key**: Add the following line to the file, replacing `YOUR_API_KEY` with your actual key:
+   ```properties
+   MAPS_API_KEY=YOUR_API_KEY
+
 ## App Flow & Views
 
 ### 1. Main Menu
