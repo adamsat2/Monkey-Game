@@ -12,7 +12,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="8dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/leaderboard_BTN_back"
@@ -29,7 +29,7 @@
         android:id="@+id/main_FRAME_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.6"
         tools:layout="@layout/fragment_high_score" />
 
     <FrameLayout
